@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous"></link>
+        <title>Peliculas</title>
+    </h:head>
+    <h:body>
+        <p:growl id="msj" showDetail="true" />  
+        <h:form>
+            <nav class="navbar navbar-dark bg-primary">
+                <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+                    &#9776;
+                </button>
+                <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                    <a class="navbar-brand" href="#">Peliculas</a>
+
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="jumbotron">
+
+                    <p:panel header="Guardar Pelicula" footer="Detalle Peliculas" style="margin-bottom:20px" >
+                        <div class="form-group row">
+                            <label for="inputCod" class="col-sm-2 form-control-label">Codigo</label>
+                            <div class="col-sm-10">
+                                <p:inputText class="form-control" id="inputCod" placeholder="Codigo" value="#{peliculaBean.pelicula.codigo}" required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputNom" class="col-sm-2 form-control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <p:inputText class="form-control" id="inputNom" placeholder="Nombre" value="#{peliculaBean.pelicula.nombre}" required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputDescrip" class="col-sm-2 form-control-label">Descripcion</label>
+                            <div class="col-sm-10">
+                                <p:inputTextarea rows="6" cols="33" class="form-control" id="inputDescrip" placeholder="Descripcion" value="#{peliculaBean.pelicula.descripcion}" required="true"/>
+                            </div>
+                        </div>
+
+                        <hr class="m-y-2"></hr>
+                        <p class="lead">
+                         
+                        <p:commandButton value="Guardar" actionListener="#{peliculaBean.guardarPelicula()}" update=":msj" />
+                        <p:commandButton value="Ir a Imagenes" action="#{peliculaBean.irImagen()}" />
+                        </p>
+                    </p:panel>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-fixed-bottom navbar-dark bg-primary">
+                <p class="text-xs-center">Carlos Andres Charris S</p>
+
+            </nav>        
+        </h:form>
+    </h:body>
+</html>
+
